@@ -9,7 +9,7 @@ export default function Footer(){
     const year = new Date().getFullYear();
 
     return (
-        <footer className="relative flex flex-col justify-center items-center pt-[2%] w-full h-120 bg-brandblack">
+        <footer className="relative flex flex-col shrink-0 justify-center items-center pt-[2%] w-full h-120 bg-brandblack">
             <Image src={FooterLogo} width={234} height={234} alt="Jabato logo" className="absolute -top-30 flex w-[280px] h-[280px]"/>
             <div className={`${inter.className} flex justify-center items-center w-full h-20 text-white`}>
                 <p className="flex w-100 h-5 text-center text-[24px] justify-center">#apulsoyfrentera</p>

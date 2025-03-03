@@ -18,9 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${anton.className} antialiased flex flex-col`}>
+      <body className={`${anton.className} antialiased flex flex-col box-border min-h-screen`}>
         <Header />
-        {children}
+        <main className="flex flex-col flex-1 w-full">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
