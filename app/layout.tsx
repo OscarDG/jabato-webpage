@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { anton, inter } from '@/app/ui/fonts'
 import Header from '@/app/ui/Header';
 import "@/app/ui/globals.css";
+import Footer from "@/app/ui/Footer";
 
 export const metadata: Metadata = {
   title: {
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body className={`${anton.className} antialiased flex flex-col`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
