@@ -10,8 +10,8 @@ export default function Hero(){
     return (
         <section className="relative flex flex-col items-center w-full h-150">
             <Image className="object-cover w-full  h-full" src={HeroImage} width={1440} height={644}  alt="Hero Image"/>
-            <div className="absolute flex justify-center bottom-15 w-[18%] h-auto">
-                <Button to={whatsAppText} variant="primary">COMPRA JABATO</Button>
+            <div className="absolute flex justify-center bottom-15 w-[60%] md:w-[20%] h-auto">
+                <Button width={80} height={100} to={whatsAppText} variant="primary">COMPRA JABATO</Button>
             </div>
         </section>
     )

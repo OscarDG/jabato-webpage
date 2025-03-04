@@ -3,6 +3,7 @@ import { anton, inter } from '@/app/ui/fonts'
 import Header from '@/app/ui/Header';
 import "@/app/ui/globals.css";
 import Footer from "@/app/ui/Footer";
+import { Providers } from '@/app/providers'
 
 export const metadata: Metadata = {
   title: {
@@ -21,7 +22,9 @@ export default function RootLayout({
       <body className={`${anton.className} antialiased flex flex-col box-border min-h-screen`}>
         <Header />
         <main className="flex flex-col flex-1 w-full">
-          {children}
+          <Providers>
+            {children}
+          </Providers>
         </main>
         <Footer />
       </body>
