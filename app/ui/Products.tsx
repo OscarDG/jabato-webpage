@@ -34,7 +34,7 @@ type ProductProps = {
     variant: 'amber' | 'porter' | 'seltzer'
 }
 
-export default function Products({variant = 'amber'}: ProductProps){
+export default function Products({ variant = 'amber'}: ProductProps){
 
     return (
         <div className='relative flex flex-col md:flex-row md:flex-nowrap w-full h-[150vh]'>
@@ -68,7 +68,7 @@ export default function Products({variant = 'amber'}: ProductProps){
                             </div>
                             <div className="relative flex items-center">
                                 <span className=" absolute w-full h-[1px] bg-white"></span>
-                                <span style={{"--custom-width": `${Amber.alcohol/maxAlcohol * 100}%`}} className="absolute w-[var(--custom-width)] h-[4px] bg-white rounded-md"></span>
+                                <span style={{"--custom-width": `${Amber.alcohol/maxAlcohol * 100}%`} as React.CSSProperties} className="absolute w-[var(--custom-width)] h-[4px] bg-white rounded-md"></span>
                             </div> 
                             <div className=" flex flex-row w-full justify-between h-10 text-white">
                                 <span>Amargor</span>
@@ -104,7 +104,7 @@ export default function Products({variant = 'amber'}: ProductProps){
                             </div>
                             <div className="relative flex items-center">
                                 <span className=" absolute w-full h-[1px] bg-white"></span>
-                                <span style={{"--custom-width": `${Porter.alcohol/maxAlcohol * 100}%`}} className="absolute w-[var(--custom-width)] h-[4px] bg-white rounded-md"></span>
+                                <span style={{"--custom-width": `${Porter.alcohol/maxAlcohol * 100}%`} as React.CSSProperties} className="absolute w-[var(--custom-width)] h-[4px] bg-white rounded-md"></span>
                             </div>
                             <div className=" flex flex-row w-full justify-between h-10 text-white">
                                 <span>Amargor</span>
@@ -140,7 +140,7 @@ export default function Products({variant = 'amber'}: ProductProps){
                         </div>
                         <div className="relative flex items-center">
                             <span className=" absolute w-full h-[1px] bg-white"></span>
-                            <span style={{"--custom-width": `${Seltzer.alcohol * 10}%`}} className="absolute w-[var(--custom-width)] h-[4px] bg-white rounded-md"></span>
+                            <span style={{"--custom-width": `${Seltzer.alcohol * 10}%`} as React.CSSProperties} className="absolute w-[var(--custom-width)] h-[4px] bg-white rounded-md"></span>
                         </div>
                         <div className="flex flex-col justify-center items-center w-[40%] h-20">
                             <Button to={whatsAppText} variant= "ghost">COMPRAR</Button>
