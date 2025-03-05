@@ -1,4 +1,4 @@
-import type { StaticImageData } from 'next/image'
+
 import { anton, inter } from "@/app/ui/fonts";
 import Image from "next/image";
 import hopImage from '@/public/hop.svg'
@@ -13,11 +13,13 @@ import coffeIcon from '@/public/i-coffee.png'
 import waterMelonIcon from '@/public/i-watermelon.png'
 import tangerineIcon from '@/public/i-tangerine.png'
 import lemonIcon from '@/public/i-lemon.png'
-
+import amberPatern from '@/public/amber-pattern.png'
+import porterPattern from '@/public/porter-pattern.png'
+import seltzserPattern from '@/public/seltzer-pattern.png'
 
 export default function Home() {
 
-  const products = [{
+const products = [{
     id: 1,
     name: "Amber",
     variant: "amber",
@@ -26,7 +28,7 @@ export default function Home() {
     alcohol: 5.5,
     thumb: amberImage,
     icons: [tangerineIcon, caramelIcon],
-    pattern: "/amber-pattern.png",
+    pattern: amberPatern,
     description: "Con un color ámbar, notas a caramelo y un carácter cítrico, la hace nuestra cerveza favorita. Tiene el perfecto balance entre el dulce de la malta y el amargo de los lúpulos, es muy refrescante y con sabroso cuerpo."
   },
   {
@@ -38,7 +40,7 @@ export default function Home() {
     alcohol: 5.5,
     thumb: porterImage,
     icons: [coffeIcon, caramelIcon],
-    pattern: "/porter-pattern.png",
+    pattern: porterPattern,
     description: "Cerveza tipo porter con notas a caramelo, chocolate y café, le agregamos una adición extra de café Campo Alto(un emprendimiento, como nosotros) justo antes de empacarla, que le da mucha más fuerza a su sabor."
   },
   {
@@ -50,7 +52,7 @@ export default function Home() {
     alcohol: 5.5,
     thumb: seltzerImage,
     icons: [lemonIcon, waterMelonIcon],
-    pattern: "/seltzer-pattern.png",
+    pattern: seltzserPattern,
     description: "Agua con gas, alcohol y mucho sabor. Dulce, acida, refrescante y con un ligero toque amargo, es una bebida elegante, algunos la consideran una opción saludable, nosotros solo creemos que es un hit!."
   },
 ];
@@ -63,14 +65,14 @@ export default function Home() {
       </section>
       <section className="flex flex-col w-full">
         {
-          products.map(product => (
-            <Products id= {product.id} variant= {product.variant} name={product.name} bitterness={product.bitterness } carbonation={product.carbonation} alcohol={product.alcohol} thumb={product.thumb} patttern={product.pattern} description={product.description} icons={product.icons}/>
+          products.map((product) => (
+            <Products key={product.id} id= {product.id} variant= {product.variant} name={product.name} bitterness={product.bitterness } carbonation={product.carbonation} alcohol={product.alcohol} thumb={product.thumb} description={product.description} icons={product.icons} pattern={product.pattern}/>
           ))
         }
       </section>
       <section className="flex flex-col justify-evenly items-center w-full h-90 md:h-100 bg-[url(/pattern.png)] bg-black">
         <p className={`${inter.className} w-[85%] md:w-[50%] h-auto text-[1.2rem] md:text-[1.5rem] text-white text-center`}>Somos los luchadores, los que damos el salto al vacío, los que aun cuando tenemos miedo lo intentamos</p>
-        <span className="w-10 h-1"><Image src={hopImage} width={30} height={30} alt="Hope icon" /></span>
+        <div className="w-10 h-1"><Image src={hopImage} width={30} height={30} alt="Hope icon"/></div>
         <h2 className={`${anton.className} w-[80%] md:w-200 text-center md:text-center text-[1.5rem] md:text-[2rem] text-white`}>Somos grandes, desde pequeños</h2>
       </section>
       <section className="flex justify-center items-center w-full h-100 overflow-hidden">

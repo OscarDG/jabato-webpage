@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Amber",
+        "variant": "amber",
+        "carbonation": "Media Baja",
+        "bitterness": "Medio",
+        "alcohol": 5.5,
+        "thumb": "/public/lata-amber.png",
+        "icons": ["/public/i-tangerine.png", "/public/i-caramel.png"],
+        "pattern": "/amber-pattern.png",
+        "description": "Con un color ámbar, notas a caramelo y un carácter cítrico, la hace nuestra cerveza favorita. Tiene el perfecto balance entre el dulce de la malta y el amargo de los lúpulos, es muy refrescante y con sabroso cuerpo."
+      },
+      {
+        "id": 2,
+        "name": "Porter",
+        "variant": "porter",
+        "carbonation": "Media Baja",
+        "bitterness": "Medio",
+        "alcohol": 5.5,
+        "thumb": "/public/lata-porter.png",
+        "icons": ["/public/i-coffee.png", "/public/i-caramel.png"],
+        "pattern": "/porter-pattern.png",
+        "description": "Cerveza tipo porter con notas a caramelo, chocolate y café, le agregamos una adición extra de café Campo Alto(un emprendimiento, como nosotros) justo antes de empacarla, que le da mucha más fuerza a su sabor."
+      },
+      {
+        "id": 3,
+        "name": "Seltzer",
+        "variant": "seltzer",
+        "carbonation": "",
+        "bitterness": "",
+        "alcohol": 5.5,
+        "thumb": "/public/lata-seltzer.png",
+        "icons": ["/public/i-lemon.png", "/public/i-watermelon.png"],
+        "pattern": "/seltzer-pattern.png",
+        "description": "Agua con gas, alcohol y mucho sabor. Dulce, acida, refrescante y con un ligero toque amargo, es una bebida elegante, algunos la consideran una opción saludable, nosotros solo creemos que es un hit!."
+      }
+]
