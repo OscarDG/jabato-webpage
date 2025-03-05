@@ -1,5 +1,7 @@
+'use client'
 
 import { anton, inter } from "@/app/ui/fonts";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import hopImage from '@/public/hop.svg'
 import secondBanner from '@/public/footer-image.png'
@@ -16,8 +18,28 @@ import lemonIcon from '@/public/i-lemon.png'
 import amberPatern from '@/public/amber-pattern.png'
 import porterPattern from '@/public/porter-pattern.png'
 import seltzserPattern from '@/public/seltzer-pattern.png'
+import MainLayer from "./ui/MainLayer";
 
 export default function Home() {
+
+  const [active, setActive] = useState('fixed')
+
+  useEffect(() => {
+      const userChoise = sessionStorage.getItem('userChoice');
+      if(userChoise === 'yes') {
+          setActive('hidden');
+      }
+  }, []);
+  
+  const handleYesClick = () => {
+      sessionStorage.setItem('userChoice', 'yes');
+      setActive('hidden');
+  };
+  
+  const handleNoClick = () => {
+      sessionStorage.setItem('userChoice', 'no');
+      alert('Lo siento, no pueden ingresar a esta página');
+  };
 
 const products = [{
     id: 1,
@@ -59,6 +81,7 @@ const products = [{
 
   return (
     <>
+      <MainLayer active={active} yes={handleYesClick} no={handleNoClick}/>
       <Hero />
       <section className="flex justify-center items-center w-full h-80 bg-[url(/pattern.png)] bg-black">
         <h1 className={`${anton.className} w-50 md:w-200 text-left md:text-center text-[3rem] md:text-[5rem] text-brandred`}>CERVEZAS CON CARACTER</h1>
