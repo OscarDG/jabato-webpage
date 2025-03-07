@@ -62,7 +62,7 @@ export default function Products({
                     }
                 </div>
                 <Parallax speed={10} className="w-full h-full flex justify-center items-center">
-                    <Image className="w-[100%] md:w-[60%] h-[100%] md:h-[80%]" src={thumb} width={639} height={1039} alt={`Imágen Lata ${name}`}/>
+                    <Image className="w-[100%] md:max-w-[480px] h-[100%] md:max-h-[847]" src={thumb} width={639} height={1039} alt={`Imágen Lata ${name}`}/>
                 </Parallax>
                 <div className={clsx("absolute", (id % 2) === 0? "bottom-10 md:bottom-20 right-2": "bottom-10 md:bottom-20 left-2", "w-[20%] h-[20%]")}>
                     {

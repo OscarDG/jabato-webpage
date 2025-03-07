@@ -1,12 +1,15 @@
 'use client'
 
-import { anton, inter } from "@/app/ui/fonts";
-import { useState, useEffect } from "react";
-import Image from "next/image";
+import { anton, inter } from "@/app/ui/fonts"
+import { useState, useEffect } from "react"
+
+import MainLayer from '@/app/ui/MainLayer'
+import Hero from "@/app/ui/Hero"
+import Products from "./ui/Products"
+
+import Image from "next/image"
 import hopImage from '@/public/hop.svg'
 import secondBanner from '@/public/footer-image.png'
-import Hero from "@/app/ui/Hero";
-import Products from "./ui/Products";
 import amberImage from '@/public/lata-amber.png'
 import porterImage from '@/public/lata-porter.png'
 import seltzerImage from '@/public/lata-seltzer.png'
@@ -18,28 +21,27 @@ import lemonIcon from '@/public/i-lemon.png'
 import amberPatern from '@/public/amber-pattern.png'
 import porterPattern from '@/public/porter-pattern.png'
 import seltzserPattern from '@/public/seltzer-pattern.png'
-import MainLayer from "./ui/MainLayer";
 
 export default function Home() {
 
   const [active, setActive] = useState('fixed')
 
   useEffect(() => {
-      const userChoise = sessionStorage.getItem('userChoice');
-      if(userChoise === 'yes') {
-          setActive('hidden');
-      }
-  }, []);
-  
-  const handleYesClick = () => {
-      sessionStorage.setItem('userChoice', 'yes');
-      setActive('hidden');
-  };
-  
-  const handleNoClick = () => {
-      sessionStorage.setItem('userChoice', 'no');
-      alert('Lo siento, no pueden ingresar a esta página');
-  };
+       const userChoise = sessionStorage.getItem('userChoice');
+       if(userChoise === 'yes') {
+           setActive('hidden');
+       }
+   }, []);
+   
+   const handleYesClick = () => {
+       sessionStorage.setItem('userChoice', 'yes');
+       setActive('hidden');
+   };
+   
+   const handleNoClick = () => {
+       sessionStorage.setItem('userChoice', 'no');
+       alert('Lo siento, no pueden ingresar a esta página');
+   };
 
 const products = [{
     id: 1,
@@ -79,6 +81,7 @@ const products = [{
   },
 ];
 
+ console.log(products)
   return (
     <>
       <MainLayer active={active} yes={handleYesClick} no={handleNoClick}/>
