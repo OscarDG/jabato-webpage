@@ -7,6 +7,7 @@ import { useMemo } from "react";
 import { useEffect, useState } from "react";
 import { Parallax } from "react-scroll-parallax";
 import { anton, inter } from '@/app/ui/fonts'
+import { motion } from 'motion/react'
 
 
 type ProductProps = {
@@ -41,16 +42,16 @@ export default function Products({
 
     useEffect(() => {
         setCustomWidth((alcohol / maxAlcohol) * 100);
-    }, [alcohol])
+    }, [])
 
     const whatsAppText = useMemo(() => {
         const text = encodeURI(`Hola Jabato, me gustaría comprar cerveza ${name}`);
         return `https://wa.me/573027366778?text=${text}`
     }, []);
-    
+
     return (
         <>
-        <div key={id} className='relative flex flex-col md:flex-row md:flex-nowrap w-full'>
+        <div  key={id} className='relative flex flex-col md:flex-row md:flex-nowrap w-full'>
             <div className={clsx('relative flex flex-col justify-center items-center w-full md:w-[50%]', variant === 'amber'? `bg-brandred order-1 md:order-1`: variant === 'porter'? `bg-brandgreen order-1 md:order-2`: variant === 'seltzer'? `bg-brandpink order-1 md:order-1`: null )} style={{ backgroundImage: `url(${pattern.src})`}}>
                 <div className={clsx("absolute", (id % 2) === 0? "top-10 -left-2 md:left-3": "top-10 right-0 md:right-10", "w-[35%] md:w-[25%] h-[20%] md:h-[25%]")}>
                 {
@@ -84,7 +85,9 @@ export default function Products({
                     </div>
                     <div className="relative flex items-center">
                         <span className={clsx(alcohol === 0? 'hidden' : "absolute w-full h-[1px] bg-white")}></span>
-                        <span style={{width: `${customWidth}%`} as React.CSSProperties} className={clsx(alcohol === 0? 'hidden': "absolute h-[4px] bg-white rounded-md")}></span>
+                        <motion.div whileInView={{
+                            width:`${customWidth}%`
+                        }} transition={{duration: 1}} className='absolute h-[4px] bg-white rounded-md'></motion.div>
                     </div> 
                     <div className=" flex flex-row w-full justify-between h-5 text-white">
                         <span className={clsx(bitterness === ''? 'hidden': `${inter.className} text-[1rem] font-bold`)}>Amargor</span>
@@ -92,7 +95,12 @@ export default function Products({
                     </div>
                     <div className="relative flex items-center">
                         <span className={clsx(bitterness === ''? 'hidden': "absolute w-full h-[1px] bg-white")}></span>
-                        <span className={clsx(bitterness === 'Medio' ? `absolute h-[4px] w-[50%] bg-white rounded-md`: bitterness === 'Alto'? 'absolute h-[4px] w-[90%] bg-white rounded-md': bitterness === 'Bajo'? 'absolute h-[4px] w-[10%] bg-white rounded-md' : bitterness === ''? 'hidden': null)}></span>
+                        <motion.div whileInView={{
+                        width: bitterness === "Medio" ? "50%":
+                        bitterness === "Alto" ? "90%":
+                        bitterness === "Bajo" ? "10%": "0%"
+
+                        }} transition={{duration: 1}} className='absolute h-[4px] bg-white rounded-md'></motion.div>
                     </div>
                     <div className=" flex flex-row w-full justify-between h-5 text-white">
                         <span className={clsx(carbonation === ''? 'hidden': `${inter.className} text-[1rem] font-bold`)}>Carbonatación</span>
@@ -100,7 +108,11 @@ export default function Products({
                     </div>
                     <div className="relative flex items-center">
                         <span className={clsx(carbonation === ''? "hidden": 'absolute w-full h-[1px] bg-white')}></span>
-                        <span className={clsx(carbonation === 'Media Baja'? `absolute h-[4px] w-[40%] bg-white rounded-md`: carbonation === 'Baja'? 'absolute h-[4px] w-[20%] bg-white rounded-md': carbonation === 'Alta'? 'absolute h-[4px] w-[70%] bg-white rounded-md': carbonation === ''? 'hidden': null)}></span>
+                        <motion.div whileInView={{
+                            width: carbonation === "Media Baja" ? "40%":
+                            carbonation === "Baja" ? "60%":
+                            carbonation === "Alta" ? "70%": "0%"
+                        }} transition={{duration: 1}} className='absolute h-[4px] bg-white rounded-md'></motion.div>
                     </div>
                     <div className="flex flex-col justify-center items-center w-[50%] md:w-[25%] h-15 mt-[2%]">
                         <Button height={100} width={100} to={whatsAppText} variant= "ghost">COMPRAR</Button>

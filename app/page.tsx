@@ -1,8 +1,4 @@
-'use client'
-
 import { anton, inter } from "@/app/ui/fonts"
-import { useState, useEffect } from "react"
-
 import MainLayer from '@/app/ui/MainLayer'
 import Hero from "@/app/ui/Hero"
 import Products from "./ui/Products"
@@ -22,26 +18,7 @@ import amberPatern from '@/public/amber-pattern.png'
 import porterPattern from '@/public/porter-pattern.png'
 import seltzserPattern from '@/public/seltzer-pattern.png'
 
-export default function Home() {
-
-  const [active, setActive] = useState('fixed')
-
-  useEffect(() => {
-       const userChoise = sessionStorage.getItem('userChoice');
-       if(userChoise === 'yes') {
-           setActive('hidden');
-       }
-   }, []);
-   
-   const handleYesClick = () => {
-       sessionStorage.setItem('userChoice', 'yes');
-       setActive('hidden');
-   };
-   
-   const handleNoClick = () => {
-       sessionStorage.setItem('userChoice', 'no');
-       alert('Lo siento, no pueden ingresar a esta página');
-   };
+export default async function Home() {
 
 const products = [{
     id: 1,
@@ -81,10 +58,9 @@ const products = [{
   },
 ];
 
- console.log(products)
   return (
     <>
-      <MainLayer active={active} yes={handleYesClick} no={handleNoClick}/>
+      <MainLayer />
       <Hero />
       <section className="flex justify-center items-center w-full h-80 bg-[url(/pattern.png)] bg-black">
         <h1 className={`${anton.className} w-50 md:w-200 text-left md:text-center text-[3rem] md:text-[5rem] text-brandred`}>CERVEZAS CON CARACTER</h1>
