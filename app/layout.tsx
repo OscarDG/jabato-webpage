@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     template: '%s | Jabato cervecería | Cervezas con carácter',
     default: 'Jabato cervecería | Cervezas con carácter'},
   description: "Cervezas artesanales con carácter. Ven y averigua porque somos la cervecería que nació grande desde pequeña.",
+  icons: {
+    icon: '/favicon.ico'
+  }
 }
 
 export default function RootLayout({
