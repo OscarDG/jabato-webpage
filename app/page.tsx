@@ -1,7 +1,7 @@
 import { anton, inter } from "@/app/ui/fonts"
-import MainLayer from '@/app/ui/MainLayer'
 import Hero from "@/app/ui/Hero"
 import Products from "./ui/Products"
+import MainLayer from '@/app/ui/MainLayer'
 
 import Image from "next/image"
 import hopImage from '@/public/hop.svg'
@@ -42,7 +42,7 @@ const products = [{
     thumb: porterImage,
     icons: [coffeIcon, caramelIcon],
     pattern: porterPattern,
-    description: "Cerveza tipo porter con notas a caramelo, chocolate y café, le agregamos una adición extra de café Campo Alto(un emprendimiento, como nosotros) justo antes de empacarla, que le da mucha más fuerza a su sabor."
+    description: "Cerveza tipo porter con notas a caramelo, chocolate y café, le agregamos una adición extra de café Campo Alto (un emprendimiento, como nosotros) justo antes de empacarla, que le da mucha más fuerza a su sabor."
   },
   {
     id: 3,
@@ -63,7 +63,7 @@ const products = [{
       <MainLayer />
       <Hero />
       <section className="flex justify-center items-center w-full h-80 bg-[url(/pattern.png)] bg-black">
-        <h1 className={`${anton.className} w-50 md:w-200 text-left md:text-center text-[3rem] md:text-[5rem] text-brandred`}>CERVEZAS CON CARACTER</h1>
+        <h1 className={`${anton.className} w-50 md:w-200 text-left md:text-center text-[3rem] md:text-[5rem] text-brandred`}>CERVEZAS CON CARÁCTER</h1>
       </section>
       <section className="flex flex-col w-full">
         {
@@ -77,7 +77,7 @@ const products = [{
         <div className="w-10 h-1"><Image src={hopImage} width={30} height={30} alt="Hope icon"/></div>
         <h2 className={`${anton.className} w-[80%] md:w-200 text-center md:text-center text-[1.5rem] md:text-[2rem] text-white`}>Somos grandes, desde pequeños</h2>
       </section>
-      <section className="flex justify-center items-center w-full h-100 overflow-hidden">
+      <section className="flex justify-center items-center w-full h-120 overflow-hidden">
         <Image className= "w-full h-full object-cover" src={secondBanner} width={1365} height={709} alt="Imágen de latas de cerveza" />
       </section>
     </>

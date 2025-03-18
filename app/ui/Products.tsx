@@ -1,5 +1,4 @@
 'use client';
-
 import Image, { StaticImageData } from "next/image"
 import Button from "./Button"
 import clsx from "clsx"
@@ -46,13 +45,13 @@ export default function Products({
 
     const whatsAppText = useMemo(() => {
         const text = encodeURI(`Hola Jabato, me gustaría comprar cerveza ${name}`);
-        return `https://wa.me/573027366778?text=${text}`
+        return `https://wa.me/573112231192?text=${text}`
     }, []);
 
     return (
         <>
-        <div  key={id} className='relative flex flex-col md:flex-row md:flex-nowrap w-full'>
-            <div className={clsx('relative flex flex-col justify-center items-center w-full md:w-[50%]', variant === 'amber'? `bg-brandred order-1 md:order-1`: variant === 'porter'? `bg-brandgreen order-1 md:order-2`: variant === 'seltzer'? `bg-brandpink order-1 md:order-1`: null )} style={{ backgroundImage: `url(${pattern.src})`}}>
+        <div  key={id} className='products_container relative flex flex-col md:flex-row md:flex-nowrap w-full'>
+            <div className={clsx('products_container--image relative flex flex-col justify-center items-center w-full md:w-[50%]', variant === 'amber'? `bg-brandred`: variant === 'porter'? `bg-brandgreen`: variant === 'seltzer'? `bg-brandpink`: null, id%2 > 0? 'order-1 md:order-1': 'order-1 md:order-2')} style={{ backgroundImage: `url(${pattern.src})`}}>
                 <div className={clsx("absolute", (id % 2) === 0? "top-10 -left-2 md:left-3": "top-10 right-0 md:right-10", "w-[35%] md:w-[25%] h-[20%] md:h-[25%]")}>
                 {
                         icons.slice(0, 1).map((icon, index) => (
@@ -75,10 +74,10 @@ export default function Products({
                     }
                 </div>
             </div>
-            <div className={clsx('flex flex-col pt-[10%] pb-[10%] pl-[5%] md:pl-[2%] w-full md:w-[50%] h-[70%] md:h-auto', variant === 'amber'? 'bg-brandred order-2 md:order-2': variant === 'porter'? 'bg-brandgreen order-2 md:order-1': variant === 'seltzer'? 'bg-brandpink order-2 md:order-2': null)}>
-                <div className="relative flex flex-col gap-4 w-[95%] md:w-[95%] h-[100%] md:h-[80%]">
+            <div className={clsx('products_container--text flex flex-col items-start md:items-center pt-[10%] pb-[10%] pl-[5%] md:pl-[2%] w-full md:w-[50%] h-[70%] md:h-auto', variant === 'amber'? 'bg-brandred': variant === 'porter'? 'bg-brandgreen': variant === 'seltzer'? 'bg-brandpink': null, id%2 > 0? 'order-2 md:order-2' : 'order-2 md:order-1')}>
+                <div className="products_container--wrap relative flex flex-col gap-4 w-[95%] md:w-[95%] max-w-[600px] h-[100%] md:h-[80%]">
                     <h1 className={`${anton.className} w-[100%] h-auto text-[4rem] md:text-[6rem] text-white`}>{name}</h1>
-                    <p className={`${inter.className}  w-[100%] md:w-[95%] h-[76px] text-white mb-10 text-[0.9rem]`}>{description}</p>
+                    <p className={`${inter.className}  w-[100%] md:w-[95%] h-[76px] text-white mb-15 text-[1rem] md:text-[1.2rem]`}>{description}</p>
                     <div className="flex flex-row w-full justify-between h-5 text-white">
                         <span className={clsx(alcohol === 0? 'hidden' : `${inter.className} text-[1rem] font-bold`)}>Alcohol</span>
                         <span className={clsx(alcohol === 0? 'hidden' : `${inter.className} text-[1rem] font-bold`)}>{alcohol}%</span>
@@ -115,7 +114,7 @@ export default function Products({
                         }} transition={{duration: 1}} className='absolute h-[4px] bg-white rounded-md'></motion.div>
                     </div>
                     <div className="flex flex-col justify-center items-center w-[50%] md:w-[25%] h-15 mt-[2%]">
-                        <Button height={100} width={100} to={whatsAppText} variant= "ghost">COMPRAR</Button>
+                        <Button height={100} width={100} to={whatsAppText} target='_blank' variant= "ghost">COMPRAR</Button>
                     </div>
                 </div>
             </div>
